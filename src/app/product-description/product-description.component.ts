@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
 import { ProductService } from '../product.service';
+import { Album } from '../album';
 
 @Component({
   selector: 'app-product-description',
@@ -8,12 +8,12 @@ import { ProductService } from '../product.service';
   styleUrls: ['./product-description.component.css']
 })
 export class ProductDescriptionComponent implements OnInit {
-  albumInfo;
+  albumInfo: Album;
 
   constructor(private _productService: ProductService) { }
 
   ngOnInit() {
-    this._productService.getAlbum(1).subscribe((response: Response) => this.albumInfo = response);
+    this._productService.getAlbum(1).subscribe((response) => this.albumInfo = response);
   }
 
 }
